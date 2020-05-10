@@ -1,0 +1,34 @@
+base: core18
+name: kubectx
+version: '0.9.0'
+summary: Faster way to switch between clusters and namespaces in kubectl.
+description: |
+  This snap provides both kubectx and kubens tools, which allow fast switching between Kubernetes clusters and namespaces.
+grade: stable
+confinement: classic
+
+apps:
+  kubectx:
+    command: kubectx
+  kubens:
+    command: kubens
+
+
+architectures:
+  - build-on: amd64
+
+
+parts:
+  kubectx:
+    plugin: dump
+    source:
+      - on amd64: https://github.com/ahmetb/kubectx/releases/download/v${snapcraft_project_version}/kubectx_v${snapcraft_project_version}_linux_x86_64.tar.gz
+    stage:
+      - kubectx
+  kubens:
+    plugin: dump
+    source:
+      - on amd64: https://github.com/ahmetb/kubectx/releases/download/v${snapcraft_project_version}/kubens_v${snapcraft_project_version}_linux_x86_64.tar.gz
+    stage:
+      - kubens
+
