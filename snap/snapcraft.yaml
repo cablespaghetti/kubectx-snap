@@ -22,13 +22,13 @@ parts:
   kubectx:
     plugin: dump
     source:
-      - on amd64: https://github.com/ahmetb/kubectx/releases/download/v${snapcraft_project_version}/kubectx_v${snapcraft_project_version}_linux_x86_64.tar.gz
+      - on amd64: https://github.com/ahmetb/kubectx/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/kubectx_v${SNAPCRAFT_PROJECT_VERSION}_linux_x86_64.tar.gz
     stage:
       - kubectx
   kubens:
     plugin: dump
     source:
-      - on amd64: https://github.com/ahmetb/kubectx/releases/download/v${snapcraft_project_version}/kubens_v${snapcraft_project_version}_linux_x86_64.tar.gz
+      - on amd64: https://github.com/ahmetb/kubectx/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/kubens_v${SNAPCRAFT_PROJECT_VERSION}_linux_x86_64.tar.gz
     stage:
       - kubens
 
