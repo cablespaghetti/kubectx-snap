@@ -10,25 +10,33 @@ confinement: classic
 apps:
   kubectx:
     command: kubectx
+    completer: completion/kubectx.bash
   kubens:
     command: kubens
-
+    completer: completion/kubens.bash
 
 architectures:
   - build-on: amd64
 
-
 parts:
   kubectx:
     plugin: dump
-    source:
-      - on amd64: https://github.com/ahmetb/kubectx/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/kubectx_v${SNAPCRAFT_PROJECT_VERSION}_linux_x86_64.tar.gz
+    source: https://github.com/ahmetb/kubectx/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/kubectx_v${SNAPCRAFT_PROJECT_VERSION}_linux_x86_64.tar.gz
     stage:
       - kubectx
   kubens:
     plugin: dump
-    source:
-      - on amd64: https://github.com/ahmetb/kubectx/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/kubens_v${SNAPCRAFT_PROJECT_VERSION}_linux_x86_64.tar.gz
+    source: https://github.com/ahmetb/kubectx/releases/download/v${SNAPCRAFT_PROJECT_VERSION}/kubens_v${SNAPCRAFT_PROJECT_VERSION}_linux_x86_64.tar.gz
     stage:
       - kubens
-
+  completers:
+    plugin: dump
+    source: https://github.com/ahmetb/kubectx/archive/v${SNAPCRAFT_PROJECT_VERSION}.tar.gz
+    organize:
+      '/kubectx/completion/*.bash' : completion/
+    build-packages: [sed]
+    stage:
+      - completion/*.bash
+    override-build: |
+      snapcraftctl build
+      sed -i 's/kubens kns/kubectx.kubens/' $SNAPCRAFT_PART_INSTALL/completion/kubens.bash
