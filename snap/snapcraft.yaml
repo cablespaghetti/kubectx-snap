@@ -33,7 +33,7 @@ parts:
     plugin: dump
     source: https://github.com/ahmetb/kubectx/archive/v${SNAPCRAFT_PROJECT_VERSION}.tar.gz
     organize:
-      '/kubectx/completion/*.bash' : completion/
+      "/kubectx-${SNAPCRAFT_PROJECT_VERSION}/completion/*.bash" : completion/
     build-packages: [sed]
     stage:
       - completion/*.bash
