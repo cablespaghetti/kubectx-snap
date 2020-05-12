@@ -3,8 +3,8 @@ name: kubectx
 version: '0.9.0'
 summary: Faster way to switch between clusters and namespaces in kubectl.
 description: |
-  This snap provides both kubectx and kubens tools, which allow fast switching between Kubernetes clusters and namespaces.
-grade: stable
+  This snap provides both kubectx and kubens tools, which allow fast switching between Kubernetes clusters and namespaces. (Go Version)
+grade: devel
 confinement: classic
 
 apps:
