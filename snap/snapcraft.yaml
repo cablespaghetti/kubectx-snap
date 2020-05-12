@@ -23,8 +23,6 @@ parts:
     plugin: dump
     source: https://github.com/ahmetb/kubectx/archive/v${SNAPCRAFT_PROJECT_VERSION}.tar.gz
     organize:
-      kubectx : bin/
-      kubens : bin/
       "/kubectx-${SNAPCRAFT_PROJECT_VERSION}/completion/*.bash" : completion/
       kubectx : usr/bin/kubectx
       kubens : usr/bin/kubens
